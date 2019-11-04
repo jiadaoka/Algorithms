@@ -7,6 +7,6 @@
     "type": "node",
     "request": "launch",
     "name": "Launch Program",
-    "program": "${workspaceFolder}/dist/freecodecamp/${fileBasename}.js"
+    "program": "${workspaceFolder}\\dist\\freecodecamp\\${fileBasenameNoExtension}.js"
   }]
 }

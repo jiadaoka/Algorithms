@@ -9,7 +9,7 @@ function Generate() {
   return src('./src/**/*.ts')
     .pipe(sourcemaps.init())
     .pipe(tsProject())
-    .pipe(sourcemaps.write('.', { sourceRoot: '../serverSrc' }))
+    .pipe(sourcemaps.write('.', { sourceRoot: '../src' }))
     .pipe(dest('./dist'))
 }
 
