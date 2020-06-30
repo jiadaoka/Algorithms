@@ -1,15 +1,21 @@
 const { src, dest, watch, series } = require('gulp')
 const { execSync } = require('child_process')
 const sourcemaps = require('gulp-sourcemaps')
+// JavaScript
+const babel = require('gulp-babel')
+
 // typescript
 const ts = require('gulp-typescript')
 const tsProject = ts.createProject('./tsconfig.json')
 
 function Generate() {
   return src('./src/**/*.ts')
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(tsProject())
-    .pipe(sourcemaps.write('.', { sourceRoot: '../src' }))
+    .pipe(babel({
+      presets: ['@babel/env','@babel/typescript']
+    }))
+    // .pipe(sourcemaps.write('.', { sourceRoot: '../src' }))
     .pipe(dest('./dist'))
 }
 
